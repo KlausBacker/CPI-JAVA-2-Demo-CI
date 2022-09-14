@@ -1,0 +1,28 @@
+name: Amsnesie
+
+on: workflow_dispatch
+
+# Variable d'environnement globale
+env:
+  NAME: Alex
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    # Variable dont la porté est limitée à CE job
+    env:
+      ENTREPRISE: Semifir
+    steps:
+      - name: "Dit bonjour"
+        run: echo "Salut $NAME ! Tu travailles pour $ENTREPRISE ? Alors bon $DAY à toi ! <3"
+        # Variable dont la portée est limitée à CETTE step
+        env:
+          DAY: mercredi
+      - name: "Mercredi ?!"
+        run: echo "Quel jour sommes nous ? $DAY ?"
+  
+  say_goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Dit au revoir"
+        run: echo "Au revoir $NAME ! Tu travailles pour quelle entreprsie ? $ENTREPRISE ? Des gros bisous et à $DAY <3"

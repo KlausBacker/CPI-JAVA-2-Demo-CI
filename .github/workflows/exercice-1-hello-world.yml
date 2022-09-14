@@ -1,0 +1,17 @@
+# Définir le nom du workflow
+name: Hello World
+
+on: workflow_dispatch
+
+# Lsite des jobs
+jobs:
+  # Nom du job
+  hello-world:
+    # Version du runner
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Checkout 
+      #   uses: actions/checkout@v3
+      - name: Hello world !
+        # Commande linux pour afficher un truc dans le terminal
+        run: echo Hello World !
